@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\dev\game-engine\bin\Debug-x64\${ProjectName}\game-engine.dll</FullPath>
+      <FullPath>C:\dev\game-engine\bin\Debug-x64\game-engine\game-engine.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\dev\game-engine\bin\Debug-x64\${ProjectName}\Sandbox.exe</FullPath>
+      <FullPath>C:\dev\game-engine\bin\Debug-x64\Sandbox\Sandbox.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
