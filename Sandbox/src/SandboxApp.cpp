@@ -11,5 +11,6 @@ public:
 
 Maybe::Application* CreateApplication()
 {
+	MB_LOG_ERROR("Client error");
 	return new Sandbox();
 }

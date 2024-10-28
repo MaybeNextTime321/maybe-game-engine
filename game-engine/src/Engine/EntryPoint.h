@@ -7,6 +7,7 @@ extern Maybe::Application* CreateApplication();
 
 int main(int argc, char** argv)
 {
+	Maybe::Log::Init();
 	auto* sb = CreateApplication();
 	sb->Run();
 	delete sb;
