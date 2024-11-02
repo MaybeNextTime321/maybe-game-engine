@@ -98,6 +98,21 @@ StyleCopReport.xml
 *.svclog
 *.scc
 
+# Int Visual Studio Files
+*.vcxproj
+*.vcxproj.filters
+
+# Visual Studio Project
+*.sln
+
+# CMake Files
+CMakeFiles/
+
+# CMake files
+*.cmake
+CMakeCache.txt
+
+
 # Chutzpah Test files
 _Chutzpah*
 
