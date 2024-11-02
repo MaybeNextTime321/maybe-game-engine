@@ -18,9 +18,5 @@ namespace Maybe
 
 		}
 	}
-	Application* Application::CreateApplication()
-	{
-		return nullptr;
-	}
 }
 

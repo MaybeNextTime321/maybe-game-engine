@@ -13,8 +13,8 @@ namespace Maybe
 
 		
 		//Call in client
-		Application* CreateApplication();
 	};
+	Application* CreateApplication();
 }
 
 
