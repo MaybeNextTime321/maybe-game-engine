@@ -9,21 +9,27 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/${CMAKE_VS_PLATFORM_N
 #include folder
 include_directories("${PROJECT_SOURCE_DIR}/game-engine/src")
 include_directories("${PROJECT_SOURCE_DIR}/game-engine/src/Engine")
+include_directories("${PROJECT_SOURCE_DIR}/game-engine/src/Engine/Events")
 
 #find files
 file(GLOB TOP_LEVEL_ENGINE "${PROJECT_SOURCE_DIR}/game-engine/src/*.cpp")
 file(GLOB DEEP_LEVEL_ENGINE "${PROJECT_SOURCE_DIR}/game-engine/src/Engine/*cpp")
+file(GLOB EVENT_ENGINE "${PROJECT_SOURCE_DIR}/game-engine/src/Engine/Events/*cpp")
 file(GLOB TOP_LEVEL_ENGINE_H "${PROJECT_SOURCE_DIR}/game-engine/src/*.h")
 file(GLOB DEEP_LEVEL_ENGINE_H "${PROJECT_SOURCE_DIR}/game-engine/src/Engine/*h")
+file(GLOB EVENT_ENGINE_H "${PROJECT_SOURCE_DIR}/game-engine/src/Engine/Events/*.h")
 
 #set var
-set (SOURSES ${TOP_LEVEL_ENGINE} ${DEEP_LEVEL_ENGINE} ${TOP_LEVEL_ENGINE_H} ${DEEP_LEVEL_ENGINE_H})
+set (SOURSES    ${TOP_LEVEL_ENGINE}     ${DEEP_LEVEL_ENGINE} 
+                ${TOP_LEVEL_ENGINE_H}   ${DEEP_LEVEL_ENGINE_H}
+                ${EVENT_ENGINE}         ${EVENT_ENGINE_H})
 
-#message(WARNING "SOURSES IS: ${SOURSES}")
+message(WARNING "Files: ${EVENT_ENGINE_H}")
 
 #set sourse group
 source_group("Source Files/src/" FILES ${TOP_LEVEL_ENGINE} ${TOP_LEVEL_ENGINE_H})
 source_group("Source Files/src/Engine" FILES ${DEEP_LEVEL_ENGINE} ${DEEP_LEVEL_ENGINE_H})
+source_group("Source Files/src/Engine/Events" FILES ${EVENT_ENGINE} ${EVENT_ENGINE_H})
 
 #build lib
 add_library(Maybe SHARED ${SOURSES})

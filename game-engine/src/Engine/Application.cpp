@@ -1,5 +1,6 @@
 #include "Application.h"
-
+#include "Engine/Log.h"
+#include "Engine/Events/ApplicationEvent.h"
 
 namespace Maybe
 {
@@ -13,6 +14,15 @@ namespace Maybe
 
 	void Application::Run()
 	{
+		WindowResizeEvent e(1920,1080);
+		if (e.IsInCategory(EventCategory::EventCategoryApplication))
+		{
+			MB_LOG_TRACE_ENGINE(e.ToString());
+		}
+		if (e.IsInCategory(EventCategory::EventCategoryInput))
+		{
+			MB_LOG_TRACE_ENGINE(e.ToString());
+		}
 		while (true)
 		{
 
