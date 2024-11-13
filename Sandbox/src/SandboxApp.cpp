@@ -1,16 +1,19 @@
 #include <Maybe.h>
 
-
 class Sandbox : public Maybe::Application
 {
-public:
-	Sandbox() {}
-	virtual ~Sandbox(){}
+  public:
+    Sandbox()
+    {
+    }
+
+    virtual ~Sandbox()
+    {
+    }
 };
 
-
-Maybe::Application* CreateApplication()
+Maybe::Application *CreateApplication()
 {
-	MB_LOG_ERROR("Client error");
-	return new Sandbox();
+    MB_LOG_ERROR("Client error");
+    return new Sandbox();
 }

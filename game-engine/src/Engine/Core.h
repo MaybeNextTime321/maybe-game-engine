@@ -1,5 +1,7 @@
 #pragma once
 
+// clang-format off
+
 #ifdef MB_PLATFORM_WINDOWS
 	#ifdef MB_BUILD_DLL
 		#define MB_API __declspec(dllexport)
@@ -11,3 +13,5 @@
 #endif 
 
 #define BIT(x) (1 << x)
+
+// clang-format on

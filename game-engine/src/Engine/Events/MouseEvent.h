@@ -5,117 +5,192 @@
 
 namespace Maybe
 {
-	class MB_API MouseScrolledEvent : public Event
-	{
-	public:
-		MouseScrolledEvent(int XOffset, int YOffset) : m_XOffset(XOffset), m_YOffset(YOffset)
-		{}
+    class MB_API MouseScrolledEvent : public Event
+    {
+      public:
+        MouseScrolledEvent(int XOffset, int YOffset) : m_XOffset(XOffset), m_YOffset(YOffset)
+        {
+        }
 
-		static EventType GetStaticType() { return EventType::MouseScrolled; }
-		virtual EventType GetEventType() const override { return EventType::MouseScrolled; }
-		EVENT_CLASS_GET_NAME(MouseScrolled)
-		virtual int GetCategoryFlags() const override { return (int)EventType::MouseScrolled; }
+        static EventType GetStaticType()
+        {
+            return EventType::MouseScrolled;
+        }
 
-		inline int GetXOffset() const { return m_XOffset; }
-		inline int GetYOffset() const { return m_YOffset; }
+        virtual EventType GetEventType() const override
+        {
+            return EventType::MouseScrolled;
+        }
 
-		std::string ToString()const override
-		{
-			std::stringstream ss;
-			ss << "Mouse Scrolled event (X: " << GetXOffset() << ", Y: " << GetYOffset() << " )";
-			return ss.str();
-		}
+        EVENT_CLASS_GET_NAME(MouseScrolled)
 
-	private:
-		int m_XOffset;
-		int m_YOffset;
-	};
+        virtual int GetCategoryFlags() const override
+        {
+            return (int)EventType::MouseScrolled;
+        }
 
+        inline int GetXOffset() const
+        {
+            return m_XOffset;
+        }
 
-	class MB_API MouseMovedEvent : public Event
-	{
-	public:
-		MouseMovedEvent(int XPosition, int YPosition) : m_XPosition(XPosition), m_YPosition(YPosition)
-		{}
+        inline int GetYOffset() const
+        {
+            return m_YOffset;
+        }
 
-		static EventType GetStaticType() { return EventType::MouseMoved; }
-		virtual EventType GetEventType() const override { return EventType::MouseMoved; }
-		EVENT_CLASS_GET_NAME(MouseMoved)
-		virtual int GetCategoryFlags() const override { return (int)EventType::MouseMoved; }
+        std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "Mouse Scrolled event (X: " << GetXOffset() << ", Y: " << GetYOffset() << " )";
+            return ss.str();
+        }
 
-		inline int GetX() const { return m_XPosition; }
-		inline int GetY() const { return m_YPosition; }
+      private:
+        int m_XOffset;
+        int m_YOffset;
+    };
 
-		std::string ToString()const override
-		{
-			std::stringstream ss;
-			ss << "Mouse Moved event (X: " << GetX() << ", Y: " << GetY() << " )";
-			return ss.str();
-		}
+    class MB_API MouseMovedEvent : public Event
+    {
+      public:
+        MouseMovedEvent(int XPosition, int YPosition) : m_XPosition(XPosition), m_YPosition(YPosition)
+        {
+        }
 
-	private:
-		int m_XPosition;
-		int m_YPosition;
-	};
+        static EventType GetStaticType()
+        {
+            return EventType::MouseMoved;
+        }
 
+        virtual EventType GetEventType() const override
+        {
+            return EventType::MouseMoved;
+        }
 
-	class MB_API MouseButtonEvent : public Event
-	{
-	public:
-		
-		static EventType GetStaticType() { return EventType::None; }
-		virtual EventType GetEventType() const override { return EventType::None; }
-		EVENT_CLASS_GET_NAME(None)
-		virtual int GetCategoryFlags() const override { return (int)EventType::None; }
+        EVENT_CLASS_GET_NAME(MouseMoved)
 
-		inline int GetKey() const { return m_KeyCode; }
+        virtual int GetCategoryFlags() const override
+        {
+            return (int)EventType::MouseMoved;
+        }
 
-	protected:
-		MouseButtonEvent(int KeyCode) : m_KeyCode(KeyCode)
-		{}
-		int m_KeyCode;
-	};
+        inline int GetX() const
+        {
+            return m_XPosition;
+        }
 
+        inline int GetY() const
+        {
+            return m_YPosition;
+        }
 
-	class MB_API MouseButtonPressedEvent : public MouseButtonEvent
-	{
-	public:
+        std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "Mouse Moved event (X: " << GetX() << ", Y: " << GetY() << " )";
+            return ss.str();
+        }
 
-		static EventType GetStaticType() { return EventType::MouseButtonPressed; }
-		virtual EventType GetEventType() const override { return EventType::MouseButtonPressed; }
-		EVENT_CLASS_GET_NAME(MouseButtonPressed)
-		virtual int GetCategoryFlags() const override { return (int)EventType::MouseButtonPressed; }
+      private:
+        int m_XPosition;
+        int m_YPosition;
+    };
 
-		std::string ToString()const override
-		{
-			std::stringstream ss;
-			ss << "Mouse Button Pressend event (key " << GetKey() << " )";
-			return ss.str();
-		}
+    class MB_API MouseButtonEvent : public Event
+    {
+      public:
+        static EventType GetStaticType()
+        {
+            return EventType::None;
+        }
 
-		MouseButtonPressedEvent(int KeyCode) : MouseButtonEvent(KeyCode)
-		{}
+        virtual EventType GetEventType() const override
+        {
+            return EventType::None;
+        }
 
-	};
+        EVENT_CLASS_GET_NAME(None)
 
-	class MB_API MouseButtonReleasedEvent : public MouseButtonEvent
-	{
-	public:
+        virtual int GetCategoryFlags() const override
+        {
+            return (int)EventType::None;
+        }
 
-		static EventType GetStaticType() { return EventType::MouseButtonReleased; }
-		virtual EventType GetEventType() const override { return EventType::MouseButtonReleased; }
-		EVENT_CLASS_GET_NAME(MouseButtonReleased)
-		virtual int GetCategoryFlags() const override { return (int)EventType::MouseButtonReleased; }
+        inline int GetKey() const
+        {
+            return m_KeyCode;
+        }
 
-		std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "Mouse Button Released event (key " << GetKey() << " )";
-			return ss.str();
-		}
+      protected:
+        MouseButtonEvent(int KeyCode) : m_KeyCode(KeyCode)
+        {
+        }
 
-		MouseButtonReleasedEvent(int KeyCode) : MouseButtonEvent(KeyCode)
-		{}
+        int m_KeyCode;
+    };
 
-	};
-}
+    class MB_API MouseButtonPressedEvent : public MouseButtonEvent
+    {
+      public:
+        static EventType GetStaticType()
+        {
+            return EventType::MouseButtonPressed;
+        }
+
+        virtual EventType GetEventType() const override
+        {
+            return EventType::MouseButtonPressed;
+        }
+
+        EVENT_CLASS_GET_NAME(MouseButtonPressed)
+
+        virtual int GetCategoryFlags() const override
+        {
+            return (int)EventType::MouseButtonPressed;
+        }
+
+        std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "Mouse Button Pressend event (key " << GetKey() << " )";
+            return ss.str();
+        }
+
+        MouseButtonPressedEvent(int KeyCode) : MouseButtonEvent(KeyCode)
+        {
+        }
+    };
+
+    class MB_API MouseButtonReleasedEvent : public MouseButtonEvent
+    {
+      public:
+        static EventType GetStaticType()
+        {
+            return EventType::MouseButtonReleased;
+        }
+
+        virtual EventType GetEventType() const override
+        {
+            return EventType::MouseButtonReleased;
+        }
+
+        EVENT_CLASS_GET_NAME(MouseButtonReleased)
+
+        virtual int GetCategoryFlags() const override
+        {
+            return (int)EventType::MouseButtonReleased;
+        }
+
+        std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "Mouse Button Released event (key " << GetKey() << " )";
+            return ss.str();
+        }
+
+        MouseButtonReleasedEvent(int KeyCode) : MouseButtonEvent(KeyCode)
+        {
+        }
+    };
+} // namespace Maybe
