@@ -1,8 +1,7 @@
 #pragma once
 
 #include "Core.h"
-#include <functional>
-#include <string>
+#include "mbpch.h"
 
 enum class EventType
 {

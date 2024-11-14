@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Log.h"
 // clang-format off
 
 #ifdef MB_PLATFORM_WINDOWS

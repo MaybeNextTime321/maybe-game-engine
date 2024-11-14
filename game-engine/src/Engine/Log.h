@@ -1,7 +1,6 @@
 #pragma once
 #include "Core.h"
-#include "spdlog/spdlog.h"
-#include <memory>
+#include "mbpch.h"
 
 namespace Maybe
 {

@@ -24,7 +24,9 @@ set (SOURSES    ${TOP_LEVEL_ENGINE}     ${DEEP_LEVEL_ENGINE}
                 ${TOP_LEVEL_ENGINE_H}   ${DEEP_LEVEL_ENGINE_H}
                 ${EVENT_ENGINE}         ${EVENT_ENGINE_H})
 
-message(WARNING "Files: ${EVENT_ENGINE_H}")
+set (PRECOMPILE_HEADER ${PROJECT_SOURCE_DIR}/game-engine/src/mbpch.h)
+
+#message(WARNING "Files: ${EVENT_ENGINE_H}")
 
 #set sourse group
 source_group("Source Files/src/" FILES ${TOP_LEVEL_ENGINE} ${TOP_LEVEL_ENGINE_H})
@@ -45,6 +47,7 @@ target_include_directories(Maybe PRIVATE "${PROJECT_SOURCE_DIR}/game-engine/vend
 set(CMAKE_SUPPRESS_REGENERATION true)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
+target_precompile_headers(Maybe PRIVATE ${PRECOMPILE_HEADER})
 
 # __________________________________________________________________________________________________________________________________________________
 
@@ -81,3 +84,5 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Sandbox)
 
 target_link_libraries(Sandbox PRIVATE Maybe)
+
+target_precompile_headers(Sandbox PRIVATE ${PRECOMPILE_HEADER})
